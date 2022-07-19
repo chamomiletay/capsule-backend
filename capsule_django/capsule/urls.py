@@ -13,6 +13,7 @@ from . import views
 
 #---- define urls ----
 urlpatterns =[
-    path('working/', views.working),
+    path('test/', views.working),
     path('show_articles', views.show_articles),
+    path('wardrobe/', views.ArticleList.as_view()),
 ]

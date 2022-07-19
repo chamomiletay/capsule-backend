@@ -15,3 +15,15 @@ def show_articles(request):
     articles = Article.objects.all().values()
     articles_list = list(articles)
     return JsonResponse(articles_list, safe=False)
+
+#--- display API view for wardrobe items ---
+class ArticleList(generics.ListCreateAPIView):
+    serializer_class = ArticleSerializer
+    queryset = Article.objects.all()
+
+    #--- authentication check ---
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+
+    def add(self, request, *args, **kwargs):
+        request.data['user_string'] = request.user.username
+        return super().add(request, *args, **kwargs)
