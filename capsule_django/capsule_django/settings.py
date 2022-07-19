@@ -60,10 +60,14 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'capsule_django.urls'
 
+path = '/Users/taylorlee/Desktop/GeneralAssembly/capstone/frontend'
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            os.path.join(path, 'build')
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -132,3 +136,7 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 STATIC_ROOT=os.path.join(BASE_DIR, "static/")
+
+STATICFILES_DIR = [
+    os.path.join(path, 'build/static')
+]
