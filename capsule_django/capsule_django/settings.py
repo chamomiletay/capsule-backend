@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'capsule',
     'corsheaders',
     'django_extensions',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -140,3 +141,9 @@ STATIC_ROOT=os.path.join(BASE_DIR, "static/")
 STATICFILES_DIR = [
     os.path.join(path, 'build/static')
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
+}
