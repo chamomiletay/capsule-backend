@@ -15,5 +15,9 @@ from . import views
 urlpatterns =[
     path('test/', views.working),
     path('show_articles', views.show_articles),
+
+    #--- display wardrobe api list ---
     path('wardrobe/', views.ArticleList.as_view()),
+    #--- display individual objects ---
+    path('wardrobe/<int:pk>', views.ArticleDetail.as_view()),
 ]

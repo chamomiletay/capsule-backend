@@ -16,7 +16,7 @@ def show_articles(request):
     articles_list = list(articles)
     return JsonResponse(articles_list, safe=False)
 
-#--- display API view for wardrobe items ---
+#--- display API view for wardrobe items (CR)---
 class ArticleList(generics.ListCreateAPIView):
     serializer_class = ArticleSerializer
     queryset = Article.objects.all()
@@ -24,6 +24,11 @@ class ArticleList(generics.ListCreateAPIView):
     #--- authentication check ---
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
-    def add(self, request, *args, **kwargs):
-        request.data['user_string'] = request.user.username
-        return super().add(request, *args, **kwargs)
+    # def add(self, request, *args, **kwargs):
+    #     request.data['user_string'] = request.user.username
+    #     return super().add(request, *args, **kwargs)
+
+#--- (RUD) permissions ---
+class ArticleDetail(generics.RetrieveUpdateDestroyAPIView):
+    serializer_class = ArticleSerializer
+    queryset = Article.objects.all()
