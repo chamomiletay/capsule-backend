@@ -31,7 +31,7 @@ class ArticleList(generics.ListCreateAPIView):
     queryset = Article.objects.all()
 
     #--- authentication check ---
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    # permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
     # def add(self, request, *args, **kwargs):
     #     request.data['user_string'] = request.user.username

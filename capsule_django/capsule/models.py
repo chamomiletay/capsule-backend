@@ -78,10 +78,10 @@ class Article(models.Model):
         TAN = '14', 'Tan'
         MULTI = '15', 'Multi'
 
-
+    user = models.CharField(max_length=255, default='')
     name = models.CharField(max_length=255)
     color = models.CharField(max_length=2, choices=Color.choices, default=Color.RED)
-    image = models.ImageField(upload_to='images/')
+    # image = models.ImageField(upload_to='images/', default='')
     article_type = models.CharField(max_length=2, choices=ArticleType.choices, default=ArticleType.TOP)
     category = models.CharField(max_length=1, choices=CategoryType.choices, default=CategoryType.LOUNGEWEAR)
     brand = models.CharField(max_length=255)
