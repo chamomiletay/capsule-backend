@@ -10,6 +10,15 @@ from .serializers import ArticleSerializer
 def working(request):
     return HttpResponse('Hello, I am working!')
 
+
+#---- test auth routes ----
+def test_login(request):
+    return JsonResponse({'loggedIn':True, 'username': 'test_user'})
+
+def test_signup(request):
+    return JsonResponse({'loggedIn': True, 'username': 'test_user'})    
+
+
 #--- display wardrobe items ---
 def show_articles(request):
     articles = Article.objects.all().values()

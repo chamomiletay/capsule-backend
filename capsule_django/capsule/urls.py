@@ -1,5 +1,4 @@
 #---- i m p o r t s ! ----
-from typing import ItemsView
 from django.urls import path
 from . import views
 
@@ -22,5 +21,9 @@ urlpatterns =[
     path('wardrobe/<int:pk>', views.ArticleDetail.as_view()),
 
     #--- protected routes ---
-    path('wardrobe_protected/', views.ArticleListProtected.as_view())
+    path('wardrobe_protected/', views.ArticleListProtected.as_view()),
+
+    #--- user auth - test routes ---
+    path('test_login', views.test_login),
+    path('test_signup', views.test_signup),
 ]
