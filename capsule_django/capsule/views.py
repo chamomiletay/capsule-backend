@@ -46,7 +46,7 @@ def show_articles(request):
 #     #     request.data['user_string'] = request.user.username
 #     #     return super().add(request, *args, **kwargs)
 
-class CreateArticle(generics.ListCreateAPIView):
+class ViewArticle(generics.ListCreateAPIView):
     serializer_class = ArticleSerializer
     queryset = Article.objects.all()
 
