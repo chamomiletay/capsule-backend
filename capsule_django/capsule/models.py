@@ -79,7 +79,7 @@ class Article(models.Model):
         TAN = '14', 'Tan'
         MULTI = '15', 'Multi'
 
-    uuid = models.UUIDField(unique=True, auto_created=True, default=uuid.uuid4)
+    # uuid = models.UUIDField(unique=True, auto_created=True, default=uuid.uuid4)
     user = models.CharField(max_length=255, default='')
     name = models.CharField(max_length=255)
     color = models.CharField(max_length=2, choices=Color.choices, default=Color.RED)
