@@ -1,9 +1,12 @@
 #---- i m p o r t s ! ----
 from django.shortcuts import render
 from django.http import JsonResponse, HttpResponse
-from rest_framework import generics, permissions
+from rest_framework import generics, permissions, status 
 from .models import Article
 from .serializers import ArticleSerializer
+from rest_framework.parsers import MultiPartParser, FormParser
+from rest_framework.response import Response
+from rest_framework.views import APIView
 
 
 #---- v i e w s ! ----
@@ -26,17 +29,31 @@ def show_articles(request):
     return JsonResponse(articles_list, safe=False)
 
 #--- display API view for wardrobe items (CR)---
-class ArticleList(generics.ListCreateAPIView):
+# class CreateArticle(APIView):
+#     parser_classes = [MultiPartParser, FormParser]
+
+#     def post(self, request, format=None):
+#         print(request.data)
+#         serializer = ArticleSerializer(data=request.data)
+#         if serializer.is_valid():
+#             serializer.save()
+#             return Response(serializer.data, status=status.HTTP_201_CREATED)
+#         else:
+#             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+            
+
+#     # def add(self, request, *args, **kwargs):
+#     #     request.data['user_string'] = request.user.username
+#     #     return super().add(request, *args, **kwargs)
+
+class CreateArticle(generics.ListCreateAPIView):
     serializer_class = ArticleSerializer
     queryset = Article.objects.all()
 
-    #--- authentication check ---
-    # permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+#     # --- authentication check ---
+#     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
-    # def add(self, request, *args, **kwargs):
-    #     request.data['user_string'] = request.user.username
-    #     return super().add(request, *args, **kwargs)
-
+    
 #--- (RUD) permissions ---
 class ArticleDetail(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = ArticleSerializer

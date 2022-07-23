@@ -16,7 +16,8 @@ urlpatterns =[
     path('show_articles', views.show_articles),
 
     #--- display wardrobe api list ---
-    path('wardrobe/', views.ArticleList.as_view()),
+    path('create/', views.CreateArticle.as_view(), name=
+    'create_article'),
     #--- display individual objects ---
     path('wardrobe/<int:pk>', views.ArticleDetail.as_view()),
 
