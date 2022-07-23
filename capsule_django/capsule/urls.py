@@ -22,7 +22,7 @@ urlpatterns =[
     path('wardrobe/<int:pk>', views.ArticleDetail.as_view()),
 
     #--- protected routes ---
-    path('wardrobe_protected/', views.ArticleListProtected.as_view()),
+    # path('wardrobe_protected/', views.ArticleListProtected.as_view()),
 
     #--- user auth - test routes ---
     path('test_login', views.test_login),
