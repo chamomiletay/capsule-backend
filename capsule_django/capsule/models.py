@@ -39,53 +39,53 @@ class Article(models.Model):
 
     #---- define clothing choices for user to select ----
     class ArticleType(models.TextChoices):
-        TOP = '1', 'Top'
-        BOTTOMS = '2', 'Bottoms'
-        DRESS = '3', 'Dress'
-        JUMPSUIT = '4', 'Jumpsuit/Romper'
-        SWEATER = '5', 'Sweater'
-        CARDIGAN = '6', 'Cardigan'
-        OUTERWEAR = '7', 'Outerwear'
-        BODYSUIT = '8', 'Bodysuit'
-        LINGERIE = '9', 'Lingerie'
-        SHOES = '10', 'Shoes'
-        ACCESSORY = '11', 'Accessory'
-        SOCKS = '12', 'Socks/Tights'
+        TOP = 'Top'
+        BTM = 'Bottoms'
+        DRESS = 'Dress'
+        JMPST = 'Jumpsuit/Romper'
+        SWTR = 'Sweater'
+        CRDGN = 'Cardigan'
+        OTRWR = 'Outerwear'
+        BDYST = 'Bodysuit'
+        LNGRE = 'Lingerie'
+        SHOES = 'Shoes'
+        ACCSRY = 'Accessory'
+        SOCKS = 'Socks/Tights'
 
     #---- define clothing categories ----
     class CategoryType(models.TextChoices):
-        LOUNGEWEAR = '1', 'Loungewear'
-        CASUAL = '2', 'Casual'
-        FORMAL = '3', 'Formal'
-        PARTY = '4', 'Party'
-        WORK = '5', 'Work'
+        LNGEWR = 'Loungewear'
+        CSUL = 'Casual'
+        FRML = 'Formal'
+        PRTY = 'Party'
+        WRK = 'Work'
 
 
     #---- define clothing color options ----
     class Color(models.TextChoices):
-        RED = '1', 'Red'
-        ORANGE = '2', 'Orange'
-        YELLOW = '3', 'Yellow'
-        BLUE = '4', 'Blue'
-        GREEN = '5', 'Green'
-        WHITE = '6', 'White'
-        BEIGE = '7', 'Beige'
-        CREAM = '8', 'Cream'
-        BLACK = '9', 'Black'
-        PURPLE = '10', 'Purple'
-        PINK = '11', 'Pink'
-        GRAY = '12', 'Gray'
-        BROWN = '13', 'Brown'
-        TAN = '14', 'Tan'
-        MULTI = '15', 'Multi'
+        RED = 'Red'
+        ORNGE = 'Orange'
+        YLW = 'Yellow'
+        BLUE = 'Blue'
+        GRN = 'Green'
+        WHITE = 'White'
+        BGE = 'Beige'
+        CREAM = 'Cream'
+        BLK = 'Black'
+        PRPLE = 'Purple'
+        PNK = 'Pink'
+        GRAY = 'Gray'
+        BRWN = 'Brown'
+        TAN = 'Tan'
+        MLTI = 'Multi'
 
     # uuid = models.UUIDField(unique=True, auto_created=True, default=uuid.uuid4)
     user = models.CharField(max_length=255, default='')
     name = models.CharField(max_length=255)
-    color = models.CharField(max_length=2, choices=Color.choices, default=Color.RED)
+    color = models.CharField(max_length=15, choices=Color.choices, default=Color.RED)
     # image = models.ImageField(upload_to='images/', default='')
-    article_type = models.CharField(max_length=2, choices=ArticleType.choices, default=ArticleType.TOP)
-    category = models.CharField(max_length=1, choices=CategoryType.choices, default=CategoryType.LOUNGEWEAR)
+    article_type = models.CharField(max_length=15, choices=ArticleType.choices, default=ArticleType.TOP)
+    category = models.CharField(max_length=15, choices=CategoryType.choices, default=CategoryType.LNGEWR)
     brand = models.CharField(max_length=255)
     quantity = models.IntegerField()
 
