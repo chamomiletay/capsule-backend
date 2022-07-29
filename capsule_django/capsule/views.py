@@ -59,6 +59,13 @@ class ArticleDetail(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = ArticleSerializer
     queryset = Article.objects.all()
 
+#--- (RUD) permissions ---
+class ArticleDetailProtected(generics.RetrieveUpdateDestroyAPIView):
+    serializer_class = ArticleSerializer
+    queryset = Article.objects.all()
+
+    permission_classes = [permissions.IsAuthenticated]
+
 #--- Protected route - wardrobe ---
 class ArticleListProtected(generics.ListCreateAPIView):
     serializer_class = ArticleSerializer
