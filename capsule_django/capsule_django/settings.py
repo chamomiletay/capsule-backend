@@ -138,9 +138,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 STATIC_ROOT=os.path.join(BASE_DIR, "static/")
 
-STATICFILES_DIR = [
-    os.path.join(path, 'build/static')
-]
+# STATICFILES_DIR = [
+#     os.path.join(path, 'build/static')
+# ]
 
 REST_FRAMEWORK = {
 #---- comment out permission_classes, use DRF SJWT auth class ----
