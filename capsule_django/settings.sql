@@ -1,3 +1,0 @@
-CREATE DATABASE capsule;
-CREATE USER capsuleuser WITH PASSWORD 'capsule';
-GRANT ALL PRIVILEGES ON DATABASE capsule TO capsuleuser;
