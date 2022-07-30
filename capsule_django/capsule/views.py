@@ -2,8 +2,8 @@
 from django.shortcuts import render
 from django.http import JsonResponse, HttpResponse
 from rest_framework import generics, permissions, status 
-from .models import Article
-from .serializers import ArticleSerializer
+from .models import Article, Favorite
+from .serializers import ArticleSerializer, FavoriteSerializer
 from rest_framework.parsers import MultiPartParser, FormParser
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -81,7 +81,12 @@ class NewOutfitProtected(generics.ListCreateAPIView):
 
     permission_classes = [permissions.IsAuthenticated]
 
-#--- randomize data ---
-class Randomizer(generics.ListCreateAPIView):
-    serializer_class = ArticleSerializer
-    queryset = Article.objects.order_by('?').first()
+#--- Favorites data (unprotected) ---
+class FavoritesView(generics.ListCreateAPIView):
+    serializer_class = FavoriteSerializer
+    queryset = Favorite.objects.all()
+
+#--- (RUD) permissions ---
+class FavoritesDetail(generics.RetrieveUpdateDestroyAPIView):
+    serializer_class = FavoriteSerializer
+    queryset = Favorite.objects.all()

@@ -15,8 +15,10 @@ urlpatterns =[
     path('test/', views.working),
     path('show_articles', views.show_articles),
 
-    #--- display wardrobe api list ---
+    #--- display full api list ---
     path('wardrobe/', views.ViewArticle.as_view()),
+    path('favorites/', views.FavoritesView.as_view()),
+
     #--- display individual objects ---
     path('wardrobe/<int:pk>', views.ArticleDetail.as_view()),
 
@@ -24,7 +26,6 @@ urlpatterns =[
     path('wardrobe_protected/', views.ArticleListProtected.as_view()),
     path('wardrobe_protected/<int:pk>', views.ArticleDetailProtected.as_view()),
     path('random_outfit_protected/', views.NewOutfitProtected.as_view()),
-    path('randomizer/', views.Randomizer.as_view()),
 
     #--- user auth - test routes ---
     path('test_login', views.test_login),
