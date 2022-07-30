@@ -51,7 +51,7 @@ class ViewArticle(generics.ListCreateAPIView):
     queryset = Article.objects.all()
 
 #     # --- authentication check ---
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    # permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
     
 #--- (RUD) permissions ---
