@@ -72,3 +72,10 @@ class ArticleListProtected(generics.ListCreateAPIView):
     queryset = Article.objects.all()
 
     permission_classes = [permissions.IsAuthenticated]
+
+#--- Protected route - randomizer ---
+class NewOutfitProtected(generics.ListCreateAPIView):
+    serializer_class = ArticleSerializer
+    queryset = Article.objects.all()
+
+    permission_classes = [permissions.IsAuthenticated]
