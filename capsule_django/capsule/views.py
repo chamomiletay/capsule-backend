@@ -7,6 +7,7 @@ from .serializers import ArticleSerializer
 from rest_framework.parsers import MultiPartParser, FormParser
 from rest_framework.response import Response
 from rest_framework.views import APIView
+import random
 
 
 #---- v i e w s ! ----
@@ -79,3 +80,8 @@ class NewOutfitProtected(generics.ListCreateAPIView):
     queryset = Article.objects.all()
 
     permission_classes = [permissions.IsAuthenticated]
+
+#--- randomize data ---
+class Randomizer(generics.ListCreateAPIView):
+    serializer_class = ArticleSerializer
+    queryset = Article.objects.order_by('?').first()

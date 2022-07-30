@@ -24,6 +24,7 @@ urlpatterns =[
     path('wardrobe_protected/', views.ArticleListProtected.as_view()),
     path('wardrobe_protected/<int:pk>', views.ArticleDetailProtected.as_view()),
     path('random_outfit_protected/', views.NewOutfitProtected.as_view()),
+    path('randomizer/', views.Randomizer.as_view()),
 
     #--- user auth - test routes ---
     path('test_login', views.test_login),

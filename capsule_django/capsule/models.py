@@ -1,3 +1,4 @@
+from turtle import title
 from django.db import models
 import uuid
 
@@ -93,3 +94,12 @@ class Article(models.Model):
         return self.name
 
 # --- 
+
+class Favorite(models.Model):
+    article_1 = models.ForeignKey(Article, on_delete=models.CASCADE, related_name='articles_1', default='')
+    article_2 = models.ForeignKey(Article, on_delete=models.CASCADE, related_name='articles_2', default='')
+    article_3 = models.ForeignKey(Article, on_delete=models.CASCADE, related_name='articles_3', default='')
+    title = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.title
