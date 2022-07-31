@@ -60,4 +60,4 @@
 
     Backend: https://capsule-capstone.herokuapp.com/
 
-### [*Link*](https://tubular-begonia-a87560.netlify.app/) to frontend repo!
+### [*Link*](https://github.com/chamomiletay/capsule-frontend) to frontend repo!
