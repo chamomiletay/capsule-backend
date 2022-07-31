@@ -1,4 +1,5 @@
 from django.db import models
+from django.forms import ModelChoiceField, ModelForm
 
 # Create your models here.
 class Article(models.Model):
@@ -66,3 +67,6 @@ class Favorite(models.Model):
 
     def __str__(self):
         return self.title
+
+class FavoriteForm(ModelForm):
+    articles = ModelChoiceField(queryset=Favorite.objects.all())

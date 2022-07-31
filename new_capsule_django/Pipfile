@@ -12,6 +12,8 @@ gunicorn = "*"
 django-cors-headers = "*"
 djangorestframework = "*"
 djangorestframework-simplejwt = "*"
+django-extensions = "*"
+ipython = "*"
 
 [dev-packages]
 

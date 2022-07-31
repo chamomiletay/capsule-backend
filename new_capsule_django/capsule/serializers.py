@@ -1,3 +1,4 @@
+from django.forms import ModelForm
 from .models import Favorite, Article
 from rest_framework import serializers
 
@@ -10,3 +11,4 @@ class FavoriteSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Favorite
         fields = ('id', 'title')
+

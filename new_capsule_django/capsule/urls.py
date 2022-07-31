@@ -20,6 +20,7 @@ urlpatterns =[
 
     #--- display individual objects ---
     path('wardrobe/<int:pk>', views.ArticleDetail.as_view()),
+    path('favorites/<int:pk>', views.FavoritesDetail.as_view()),
 
     #--- protected routes ---
     path('wardrobe_protected/', views.ArticleListProtected.as_view()),
